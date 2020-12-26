@@ -1,5 +1,6 @@
 import React,{useContext,useState} from 'react';
 
+
 const CurrentTimeContext = React.createContext()
 const UpdatedTimeContext = React.createContext()
 
@@ -11,13 +12,26 @@ export function CTimeContext(){
 export function UpTimeContext(){
    return useContext(UpdatedTimeContext)
 }
+  
 
 const TimeContext = ({children}) => {
 
-    const [val, updateVal] = useState(new Date().toLocaleTimeString())
+  async function ghvj() {
+      let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+      let data = await response.json();
+      
+     
+      
+      return await JSON.stringify(data)
+
+   }
+   
+   console.log(ghvj().then(res=>res.data))
+    const [val, updateVal] = useState( 'ghvj')
 
     const Udval =()=>{
-      return  updateVal(new Date().toLocaleTimeString())
+       console.log()
+      return  updateVal('ghvj')
     }
     return ( 
     <>
